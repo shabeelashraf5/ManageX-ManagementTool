@@ -9,7 +9,6 @@ const addUserSchema = new mongoose.Schema({
     lname: {type: String},
     phone: {type: Number},
     address: {type: String}
-    
 })
 
 const collectionUser = new mongoose.model('user', addUserSchema)

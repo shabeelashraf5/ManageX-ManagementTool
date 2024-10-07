@@ -1,12 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../../shared/components/button/button.component';
+import { Passwords } from '../../models/dashboard.model';
+import { DashboardService } from '../../core/services/dashboard/dashboard.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonComponent],
+  imports: [CommonModule, FormsModule, ButtonComponent, HttpClientModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -22,7 +25,10 @@ export class DashboardComponent {
   alert: boolean = false
   errorMessage: string = ''
 
- constructor(){}
+  alertMessage: boolean = false
+  messageAlert: string = ''
+
+ DashService = inject(DashboardService)
 
  generatePassword(){
 
@@ -77,15 +83,53 @@ export class DashboardComponent {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
 
-
     this.generatePass = result
-
 
  }
 
 
+ storePasswords(){
+
+  if (!this.generatePass) { 
+    this.alert = true; 
+    this.errorMessage = 'Please click the Generate button to create a password first.';
+    this.messageAlert = '';
+    return; 
+  }
+
+  const passwordData: Passwords = {
+    _id: '',
+    password: this.generatePass,
+    date: new Date()
+  }
+
+ this.DashService.addPasswords(passwordData).subscribe({
+  next: (response) => {
+    
+    console.log('the passwords has been stored', response)
+
+    this.messageAlert = 'The password has been saved successfully!';
+    this.alertMessage = true; // Set the success alert to true
+    this.alert = false; 
+    
+
+  },
+  error: (error) =>{
+
+    this.alert = true;
+    this.errorMessage = 'Failed to store password. Please try again.';
+    this.messageAlert = '';
+
+  }
+ })
+
+ }
+
+
+
  closeWarning() {
   this.alert = false;
+  this.alertMessage = false
 }
 
 

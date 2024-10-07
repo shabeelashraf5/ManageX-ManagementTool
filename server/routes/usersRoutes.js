@@ -6,9 +6,7 @@ const dashboardController  = require('../controllers/users')
 
 router.post('/login', dashboardController.userLogin)
 router.post('/register', dashboardController.userRegister)
-
-
-
+router.post('/dashboard', dashboardController.generatePasswords)
 
 
 module.exports = router

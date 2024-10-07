@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   myForm!: FormGroup
   errorMessage: string = ''
   incorrectPassword: string =''
+  token: string = ''
 
   private logService = inject(LoginService)
   private router = inject(Router)
@@ -56,7 +57,7 @@ logSubmit(){
       next: (response) => {
         console.log('LOGGED in', response);
         if(response.success){
-          this.router.navigate(['/'])
+          this.router.navigate(['/dashboard'])
         }else{
           this.errorMessage = response.message;
         }
