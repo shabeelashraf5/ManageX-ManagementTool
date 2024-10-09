@@ -11,6 +11,14 @@ const userRegister = async (req, res) => {
 
     try {
 
+        if (password !== rpassword) {
+            console.log('Password do not match')
+            return res.status(400).json({
+                success: false,
+                message: 'Passwords do not match. Please check again'
+            });
+        }
+
         const users = {
             email, password, rpassword, fname, lname, phone, address
         }
@@ -18,6 +26,7 @@ const userRegister = async (req, res) => {
         let user = await collectionUser.insertMany([users])
         console.log(user)
 
+    
         return res.json({ user: [] , success: true, message: 'SUCCESS'})
 
     }catch (error){
@@ -97,4 +106,49 @@ const userRegister = async (req, res) => {
  }
 
 
- module.exports = { userLogin, userRegister, generatePasswords }
+ const loadPassword = async (req , res) => {
+
+    try {
+
+        const loadPass = await collectionpasswords.find({})
+
+        console.log(loadPass)
+
+        return res.status(200).json({
+            success: 'true', message: 'The datas loaded', data: loadPass
+        })
+
+
+    }catch (error) {
+
+        res.status(500).json({
+
+            success: 'false', message:'Error Occured'
+        })
+    }
+
+ }
+
+ const passwordDelete = async (req, res) => {
+
+    const passId  = req.params.id
+
+    try {
+
+        await collectionpasswords.findOneAndDelete({_id: passId})
+
+        return res.status(200).json({
+            success: 'true',
+            message: 'Success'
+        })
+    }catch (error){
+
+        res.status(500).json({
+            success: 'false',
+            message: 'Error Occured'
+        })
+    }
+}
+
+
+ module.exports = { userLogin, userRegister, generatePasswords, loadPassword , passwordDelete }

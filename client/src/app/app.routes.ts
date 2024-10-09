@@ -6,6 +6,8 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { loggedGuard } from './core/guards/logged.guard';
 import { loggedOutGuard } from './core/guards/logged-out.guard';
 import { FrontComponent } from './features/front/front.component';
+import { PasswordsComponent } from './features/passwords/passwords.component';
+
 
 
 export const routes: Routes = [
@@ -13,5 +15,6 @@ export const routes: Routes = [
     {path: '', component: FrontComponent, canActivate: [loggedOutGuard]},
     {path: 'dashboard' , component: DashboardComponent, canActivate: [loggedGuard] },
     {path: 'login' , component: LoginComponent, canActivate: [loggedOutGuard]},
-    {path: 'register' , component: RegisterComponent, canActivate: [loggedOutGuard]}
+    {path: 'register' , component: RegisterComponent, canActivate: [loggedOutGuard]},
+    {path: 'passwords', component: PasswordsComponent, canActivate: [loggedGuard]}
 ];

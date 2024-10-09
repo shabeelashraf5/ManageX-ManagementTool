@@ -1,1 +1,27 @@
-<p>table works!</p>
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th *ngFor="let column of columns" scope="col" class="px-6 py-3">
+              {{ column.header }}
+            </th>
+            <th scope="col" class="px-6 py-3"></th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <td *ngFor="let column of columns" class="px-6 py-4">
+              {{ row[column.field] }}                       
+            </td>
+            <td class="px-6 py-4 text-right">
+             
+              <button  (click)="deletePassword(row._id)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Delete </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
