@@ -9,6 +9,7 @@ import { FrontComponent } from './features/front/front.component';
 import { PasswordsComponent } from './features/passwords/passwords.component';
 import { ResetpasswordComponent } from './features/resetpassword/resetpassword.component';
 import { DispalypasswordComponent } from './features/dispalypassword/dispalypassword.component';
+import { ErrorpageComponent } from './features/errorpage/errorpage.component';
 
 
 
@@ -20,5 +21,6 @@ export const routes: Routes = [
     {path: 'register' , component: RegisterComponent, canActivate: [loggedOutGuard]},
     {path: 'passwords', component: PasswordsComponent, canActivate: [loggedGuard]},
     {path: 'reset-password', component: ResetpasswordComponent, canActivate: [loggedOutGuard]},
-    {path: 'update-password', component: DispalypasswordComponent, canActivate: [loggedOutGuard]}
+    {path: 'update-password', component: DispalypasswordComponent, canActivate: [loggedOutGuard]},
+    {path: '**' , component: ErrorpageComponent}
 ];

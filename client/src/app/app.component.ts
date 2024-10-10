@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     
       if(event instanceof NavigationEnd){
 
-        const navbarHiddenRoutes = ['/']
+        const navbarHiddenRoutes = ['/' , '/**']
         this.showNavbar = !navbarHiddenRoutes.includes(event.urlAfterRedirects)
       }
 
