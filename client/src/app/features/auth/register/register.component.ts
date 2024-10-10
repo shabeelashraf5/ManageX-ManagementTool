@@ -25,6 +25,7 @@ myForm!: FormGroup
 private regService = inject(RegisterService)
 private router = inject(Router)
 errorMessage: string = ''
+errorEmail: string = ''
 
 ngOnInit() {
 
@@ -49,6 +50,7 @@ setForm() {
 submitForm(){
 
    this.errorMessage = ' '
+   this.errorEmail = ' '
 
   if(this.myForm.invalid){
     this.myForm.markAllAsTouched()
@@ -66,10 +68,10 @@ submitForm(){
 
       if(error.status === 400){
 
-        this.errorMessage = 'Both the password should be same'
+        if(error.error.message === '')
+          this.errorMessage = 'Both the password should be same'
 
       }
-
 
       console.log(error)
     }

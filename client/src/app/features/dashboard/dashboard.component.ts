@@ -24,6 +24,7 @@ export class DashboardComponent {
   useMixed: boolean = false
   alert: boolean = false
   errorMessage: string = ''
+  user_id: string = ''
 
   alertMessage: boolean = false
   messageAlert: string = ''
@@ -99,6 +100,7 @@ export class DashboardComponent {
 
   const passwordData: Passwords = {
     _id: '',
+    user_id: this.user_id,
     password: this.generatePass,
     date: new Date()
   }
@@ -109,7 +111,7 @@ export class DashboardComponent {
     console.log('the passwords has been stored', response)
 
     this.messageAlert = 'The password has been saved successfully!';
-    this.alertMessage = true; // Set the success alert to true
+    this.alertMessage = true; 
     this.alert = false; 
     
 

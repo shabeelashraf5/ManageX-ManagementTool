@@ -7,6 +7,8 @@ import { loggedGuard } from './core/guards/logged.guard';
 import { loggedOutGuard } from './core/guards/logged-out.guard';
 import { FrontComponent } from './features/front/front.component';
 import { PasswordsComponent } from './features/passwords/passwords.component';
+import { ResetpasswordComponent } from './features/resetpassword/resetpassword.component';
+import { DispalypasswordComponent } from './features/dispalypassword/dispalypassword.component';
 
 
 
@@ -16,5 +18,7 @@ export const routes: Routes = [
     {path: 'dashboard' , component: DashboardComponent, canActivate: [loggedGuard] },
     {path: 'login' , component: LoginComponent, canActivate: [loggedOutGuard]},
     {path: 'register' , component: RegisterComponent, canActivate: [loggedOutGuard]},
-    {path: 'passwords', component: PasswordsComponent, canActivate: [loggedGuard]}
+    {path: 'passwords', component: PasswordsComponent, canActivate: [loggedGuard]},
+    {path: 'reset-password', component: ResetpasswordComponent, canActivate: [loggedOutGuard]},
+    {path: 'update-password', component: DispalypasswordComponent, canActivate: [loggedOutGuard]}
 ];

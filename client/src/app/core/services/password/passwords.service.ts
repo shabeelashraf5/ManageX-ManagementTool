@@ -18,5 +18,7 @@ export class PasswordsService {
   deletePass(id: string): Observable<any>{
     return this.http.delete(`${this.apiUrl}/passwords/delete/${id}`)
   }
+
+  
   
 }
