@@ -17,7 +17,7 @@ export class TableComponent  {
   
   @Input() columns: Array<{header: string, field: string }> = []
   @Input() data: Array<any> = []
-  @ViewChild(PasswordsComponent) child!: PasswordsComponent
+  //@ViewChild(PasswordsComponent) child!: PasswordsComponent
 
 
   deletePassword(id: string){

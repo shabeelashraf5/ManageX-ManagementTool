@@ -3,11 +3,12 @@ import { Register } from '../../models/register.model';
 import { LoginService } from '../../core/services/login/login.service';
 import { Rpassword } from '../../models/reset-password.model';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-resetpassword',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, HttpClientModule],
   templateUrl: './resetpassword.component.html',
   styleUrl: './resetpassword.component.css'
 })

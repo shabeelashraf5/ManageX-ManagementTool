@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PasswordsService } from '../../core/services/password/passwords.service';
 import { Passwords } from '../../models/dashboard.model';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-passwords',
   standalone: true,
-  imports: [TableComponent, CommonModule],
+  imports: [TableComponent, CommonModule, HttpClientModule],
   templateUrl: './passwords.component.html',
-  styleUrl: './passwords.component.css'
+  styleUrls:  ['./passwords.component.css']
 })
 export class PasswordsComponent implements OnInit {
   

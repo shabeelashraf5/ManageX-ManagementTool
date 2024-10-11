@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 import { LoginService } from '../../services/login/login.service';
 import { PasswordsService } from '../../services/password/passwords.service';
 import { Register } from '../../../models/register.model';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+
 import { FrontComponent } from './front.component';
 
 describe('FrontComponent', () => {
@@ -8,7 +11,15 @@ describe('FrontComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FrontComponent]
+      imports: [FrontComponent],
+
+      providers: [
+        {provide: ActivatedRoute,
+          useValue: {
+            paramMap: of({get: (key: string) => 'mocked-id'})
+          }
+        }
+      ]
     })
     .compileComponents();
     

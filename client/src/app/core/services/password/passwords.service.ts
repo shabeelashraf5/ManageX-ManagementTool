@@ -11,8 +11,8 @@ export class PasswordsService {
 
   constructor(private http: HttpClient) { }
 
-  loadPass(){
-    return this.http.get<any>(`${this.apiUrl}/passwords`)
+  loadPass(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/passwords`)
   }
 
   deletePass(id: string): Observable<any>{

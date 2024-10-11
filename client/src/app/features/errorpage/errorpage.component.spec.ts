@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { of } from 'rxjs'
 import { ErrorpageComponent } from './errorpage.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('ErrorpageComponent', () => {
   let component: ErrorpageComponent;
@@ -8,7 +9,14 @@ describe('ErrorpageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ErrorpageComponent]
+      imports: [ErrorpageComponent],
+      providers: [
+       { provide: ActivatedRoute,
+        useValue: {
+          paramMap: of({get: (key: string) => 'mocked-id'})
+        }
+        }
+      ]
     })
     .compileComponents();
     

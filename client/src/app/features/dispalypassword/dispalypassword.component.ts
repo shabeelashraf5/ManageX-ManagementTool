@@ -15,6 +15,7 @@ export class DispalypasswordComponent implements OnInit {
   newPassword!: string
   rePassword!: string
   token: string | null = ''
+  queryParam: string | null = null;
 
   passService = inject(LoginService)
   router = inject(Router)
@@ -24,8 +25,10 @@ export class DispalypasswordComponent implements OnInit {
 
   ngOnInit() {
 
-    this.token =this.route.snapshot.queryParamMap.get('token')
-    
+    this.route.queryParamMap.subscribe(params => {
+      this.queryParam = params.get('token')
+    });
+  
   }
 
   onSubmit(){
