@@ -26,7 +26,7 @@ jobs:
     - name: Build Angular project
       run: |
         cd client
-        npm run build -- --prod
+        npm run build 
 
     
 
