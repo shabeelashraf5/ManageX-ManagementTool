@@ -11,6 +11,7 @@ const bodyparser = require('body-parser')
 const connectDB = require('./config/database')
 
 const userRouter = require('./routes/usersRoutes')
+const weatherRouter = require('./routes/weatherRoutes')
 
 
 const app = express()
@@ -26,6 +27,7 @@ app.use(cors())
 
 
 app.use('/api' , userRouter)
+app.use('/api/weather', weatherRouter)
 
 
 

@@ -10,6 +10,8 @@ import { PasswordsComponent } from './features/passwords/passwords.component';
 import { ResetpasswordComponent } from './features/resetpassword/resetpassword.component';
 import { DispalypasswordComponent } from './features/dispalypassword/dispalypassword.component';
 import { ErrorpageComponent } from './features/errorpage/errorpage.component';
+import { WeatherComponent } from './features/weather/weather.component';
+import { TodolistComponent } from './features/todolist/todolist.component';
 
 
 
@@ -22,5 +24,7 @@ export const routes: Routes = [
     {path: 'passwords', component: PasswordsComponent, canActivate: [loggedGuard]},
     {path: 'reset-password', component: ResetpasswordComponent, canActivate: [loggedOutGuard]},
     {path: 'update-password', component: DispalypasswordComponent, canActivate: [loggedOutGuard]},
+    {path: 'weather', component: WeatherComponent, canActivate: [loggedGuard]},
+    {path: 'todolist', component: TodolistComponent, canActivate: [loggedGuard]},
     {path: '**' , component: ErrorpageComponent}
 ];
