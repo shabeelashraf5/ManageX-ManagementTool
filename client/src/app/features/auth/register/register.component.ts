@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [NavbarComponent, ButtonComponent, FormsModule, ReactiveFormsModule, CommonModule, HttpClientModule],
+  imports: [ButtonComponent, FormsModule, ReactiveFormsModule, CommonModule, HttpClientModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

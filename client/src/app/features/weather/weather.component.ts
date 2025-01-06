@@ -21,6 +21,7 @@ export class WeatherComponent {
     try {
       const response = await axios.get(`http://localhost:3000/api/weather/${this.city}`);
       this.weatherData = response.data;
+      console.log(this.weatherData)
       this.setBackgroundImage(this.weatherData.weatherCondition);
       this.errorMessage = '';
     } catch (error: any) {

@@ -14,10 +14,13 @@ const getWeather = async (req , res) => {
             temperature: response.data.main.temp,
             humidity: response.data.main.humidity,
             description: response.data.weather[0].description,
-            weatherCondition: response.data.weather[0].main
+            weatherCondition: response.data.weather[0].main,
+            windSpeed: response.data.wind.speed, 
+            visibility: response.data.visibility, 
         }
 
         console.log(weatherData)
+        console.log(response)
 
         res.status(200).json(weatherData);
     } catch (error) {

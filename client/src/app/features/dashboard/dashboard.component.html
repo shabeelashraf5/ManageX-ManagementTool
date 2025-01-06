@@ -1,5 +1,5 @@
 
-<div *ngIf = 'alert' id="toast-warning" class="fixed right-0 top-5 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+<div *ngIf = 'alert' id="toast-warning" class="fixed top-20 right-0 z-70 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
     <div  class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"/>
@@ -15,7 +15,7 @@
     </button>
 </div>
 
-<div *ngIf ='alertMessage' id="toast-success" class="fixed right-0 top-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+<div *ngIf ='alertMessage' id="toast-success" class="fixed top-20 right-0 z-70 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
     <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
@@ -33,12 +33,12 @@
 
 
 
-<div class="flex-grow flex items-center justify-center ">
+<div class="flex flex-col items-center justify-center min-h-screen ">
 
 
-<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-24">
-    <a href="#">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Generate your Password</h5>
+<div class="max-w-sm p-6 bg-customPurple border border-customRed rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <a>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white text-center">Generate your Password</h5>
     </a>
     
 
@@ -48,15 +48,16 @@
     </div>
     <div class="flex items-center">
         <!-- <button (click)="generatePassword()" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-700 dark:bg-blue-600 border hover:bg-blue-800 dark:hover:bg-blue-700 rounded-s-lg border-blue-700 dark:border-blue-600 hover:border-blue-700 dark:hover:border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">Generate</button> -->
-         <app-button (click)="generatePassword()" label ='Generate' customClass = 'flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-700 dark:bg-blue-600 border hover:bg-blue-800 dark:hover:bg-blue-700 rounded-s-lg border-blue-700 dark:border-blue-600 hover:border-blue-700 dark:hover:border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800'  ></app-button>
+         <app-button (click)="generatePassword()" label ='Generate' customClass = 'flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-customPurple border hover:bg-customRed dark:hover:bg-blue-700 rounded-s-lg border-customRed dark:hover:border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800'  ></app-button>
         <div class="relative w-full">
-            <input id="url-shortener" type="text" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-e-0 border-gray-300 text-gray-500 dark:text-gray-400 text-sm border-s-0 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{generatePass}}" readonly disabled />
+            <input id="url-shortener" type="text" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-e-0 border-customRed text-gray-500 dark:text-gray-400 text-sm border-s-0 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{generatePass}}" readonly disabled />
         </div>
-        <button data-tooltip-target="tooltip-url-shortener" data-copy-to-clipboard-target="url-shortener" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-gray-500 dark:text-gray-400 hover:text-gray-900 bg-gray-100 border border-gray-300 rounded-e-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:hover:text-white dark:border-gray-600" type="button">
+        <button data-tooltip-target="tooltip-url-shortener" data-copy-to-clipboard-target="url-shortener" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-gray-500 dark:text-gray-400 hover:text-gray-900 bg-customPurple border border-customRed rounded-e-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:hover:text-white dark:border-gray-600" type="button">
             <span id="default-icon">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                    <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
-                </svg>
+                <svg class="w-4 h-4 text-customRed" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"/>
+                  </svg>
+                  
             </span>
             <span id="success-icon" class="hidden inline-flex items-center">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
@@ -73,32 +74,32 @@
     <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Check your generated password to use further</p>
 </div>
 
-<app-button (click)="storePasswords()" type ='submit' label ='Save your generated Password' customClass = 'hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 mt-5'></app-button>
+<app-button (click)="storePasswords()" type ='submit' label ='Save your generated Password' customClass = 'hover:text-white border border-customRed hover:bg-customRed focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 mt-5'></app-button>
    
  <fieldset>
     <legend class="sr-only">Checkbox variants</legend>
 
-    <label for="size" class="block mb-2 text-sm font-medium text-gray-900 mt-5">Password Length (6 - 12)</label>
-    <input [(ngModel)]="passwordSize" type="number" id="size" min="6" max="12" class="border border-gray-300 p-2 rounded-md" >
+    <label for="size" class="block mb-2 text-sm font-medium text-white mt-5">Password Length (6 - 12)</label>
+    <input [(ngModel)]="passwordSize" type="number" id="size" min="6" max="12" class="border border-gray-300 p-2 focus:ring-customRed focus:ring-2  rounded-md" >
   
     <div class="flex items-center mb-4 mt-3"> 
-        <input [(ngModel)]="useUpperCase" id="checkbox-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >
-        <label for="checkbox-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> UpperCase</label>
+        <input [(ngModel)]="useUpperCase" id="checkbox-1" type="checkbox" value="" class="w-4 h-4 bg-gray-100 rounded focus:ring-customRed focus:ring-2 dark:bg-gray-700" >
+        <label for="checkbox-1" class="ms-2 text-sm font-medium text-white dark:text-gray-300"> UpperCase</label>
     </div>
   
     <div class="flex items-center mb-4">
-        <input  [(ngModel)]="useLowerCase" id="checkbox-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="checkbox-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LowerCase</label>
+        <input  [(ngModel)]="useLowerCase" id="checkbox-2" type="checkbox" value="" class="w-4 h-4 bg-gray-100 rounded focus:ring-customRed focus:ring-2 dark:bg-gray-700">
+        <label for="checkbox-2" class="ms-2 text-sm font-medium text-white dark:text-gray-300">LowerCase</label>
     </div>
   
     <div class="flex items-center mb-4">
-        <input [(ngModel)]="useNumbers" id="checkbox-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="checkbox-3" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Numbers</label>
+        <input [(ngModel)]="useNumbers" id="checkbox-3" type="checkbox" value="" class="w-4 h-4 bg-gray-100 rounded focus:ring-customRed focus:ring-2 dark:bg-gray-700">
+        <label for="checkbox-3" class="ms-2 text-sm font-medium text-white dark:text-gray-300">Numbers</label>
     </div>
     
     <div class="flex items-center mb-4">
-        <input [(ngModel)] = 'useMixed' id="checkbox-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="checkbox-3" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mixed</label>
+        <input [(ngModel)] = 'useMixed' id="checkbox-3" type="checkbox" value="" class="w-4 h-4 bg-gray-100 rounded focus:ring-customRed focus:ring-2 dark:bg-gray-700">
+        <label for="checkbox-3" class="ms-2 text-sm font-medium text-white dark:text-gray-300">Mixed</label>
     </div>
 
   </fieldset> 

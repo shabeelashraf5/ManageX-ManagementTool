@@ -1,9 +1,7 @@
 <div 
-  class="flex-grow flex items-center justify-center bg-blue-50 mt-36" 
-  [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')', 'background-size': 'cover', 'background-position': 'center' }"
->
-  <div class="bg-white shadow-md rounded-lg p-6 w-96 ">
-    <h1 class="text-2xl font-bold text-center mb-4">Weather App</h1>
+  class="flex flex-col items-center justify-center min-h-screen" >
+  <div class="bg-customPurple border border-customRed shadow-md rounded-lg p-6 w-[500px]" [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')', 'background-size': 'cover', 'background-position': 'center' }">
+    <h1 class="text-2xl font-bold text-white text-center mb-4">Weather App</h1>
 
     <div class="mb-4">
       <input 
@@ -11,21 +9,36 @@
         (keyup.enter)="getWeather()" 
         type="text" 
         placeholder="Enter city name" 
-        class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="w-full p-2 border rounded-md  focus:outline-none focus:ring-2 focus:ring-customRed"
       />
     </div>
 
     <button 
       (click)="getWeather()" 
-      class="bg-blue-500 text-white py-2 px-4 rounded w-full hover:bg-blue-600">
+      class="bg-customPurple border border-customRed hover:bg-customRed text-white py-2 px-4 rounded w-full hover:bg-blue-600">
       Get Weather
     </button>
 
-    <div *ngIf="weatherData" class="mt-4 p-4 bg-blue-50 rounded-md">
-      <h2 class="text-xl font-bold">{{ weatherData.city }}</h2>
-      <p class="mt-2 text-lg">Temperature: {{ weatherData.temperature }}°C</p>
-      <p>Humidity: {{ weatherData.humidity }}%</p>
-      <p>Weather: {{ weatherData.description }}</p>
+    <div *ngIf="weatherData" class="mt-4 p-4 bg-transparent rounded-md">
+      <h2 class="text-3xl font-bold text-center">{{ weatherData.city }}</h2>
+      <p class="mt-2 text-4xl font-bold text-center">{{ weatherData.temperature }}°C</p>
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="bg-customPurple border border-customRed p-2 rounded shadow-md text-center">
+          <p class="text-sm text-white">Humidity</p>
+          <p class="text-lg text-white font-bold">{{ weatherData.humidity }}%</p>
+        </div>
+        <div class="bg-customPurple border border-customRed p-2 rounded shadow-md text-center">
+          <p class="text-sm text-white">Weather</p>
+          <p class="text-lg text-white font-bold">{{ weatherData.description}}</p>
+        </div>
+        <div class="bg-customPurple border border-customRed p-2 rounded shadow-md text-center">
+          <p class="text-sm text-white">Wind Speed</p>
+          <p class="text-lg text-white font-bold">{{ weatherData.windSpeed }} m/s</p>
+        </div>
+        <div class="bg-customPurple border border-customRed p-2 rounded shadow-md text-center">
+          <p class="text-sm text-white">Visibility</p>
+          <p class="text-lg text-white font-bold">{{ weatherData.visibility / 1000 }} km</p> 
+        </div>
     </div>
 
     <div *ngIf="errorMessage" class="mt-4 p-4 bg-red-100 rounded-md text-red-700">
