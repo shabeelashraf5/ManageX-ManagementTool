@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Component, inject, Input, ViewChild, OnInit } from '@angular/core';
 import { PasswordsService } from '../../../core/services/password/passwords.service';
 import { Passwords } from '../../../models/dashboard.model';
@@ -14,6 +14,7 @@ import { PasswordsComponent } from '../../../features/passwords/passwords.compon
 export class TableComponent  {
 
   passService = inject(PasswordsService)
+
   
   @Input() columns: Array<{header: string, field: string }> = []
   @Input() data: Array<any> = []
