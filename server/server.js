@@ -12,6 +12,7 @@ const connectDB = require('./config/database')
 
 const userRouter = require('./routes/usersRoutes')
 const weatherRouter = require('./routes/weatherRoutes')
+const todoRouter = require('./routes/todoRoutes')
 
 
 const app = express()
@@ -28,6 +29,7 @@ app.use(cors())
 
 app.use('/api' , userRouter)
 app.use('/api/weather', weatherRouter)
+app.use('/api/todolist', todoRouter)
 
 
 

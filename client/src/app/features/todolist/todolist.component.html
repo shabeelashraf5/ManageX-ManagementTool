@@ -7,7 +7,7 @@
     <div class="flex items-center mb-4">
       <input
         type="text"
-        [(ngModel)]="newTask"
+        [(ngModel)]="title"
         placeholder="Add a new task"
         class="flex-grow p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
@@ -43,19 +43,19 @@
   
     <!-- Task List -->
     <ul class="space-y-3">
-      <li *ngFor="let task of filteredTasks()">
+      <li *ngFor="let tasks of filteredTasks()">
         <div class="flex items-center justify-between p-3 bg-customPurple border border-customRed text-white rounded-lg">
           <div class="flex items-center">
             <input
               type="checkbox"
-              [(ngModel)]="task.completed"
-              (change)="toggleCompletion(task.id)"
+              [checked]="tasks.completed"
+              (change)="toggleCompletion(tasks._id)"
               class="mr-2"
             />
-            <span [ngClass]="{ 'line-through text-gray-400': task.completed }" >{{ task.text }}</span>
+            <span [ngClass]="{ 'line-through text-gray-400': tasks.completed }" >{{ tasks.title }}</span>
           </div>
           <button
-            (click)="deleteTask(task.id)"
+            (click)="deleteTask(tasks._id)"
             class="ml-3 text-red-500 hover:text-red-700"
           >
             Delete
