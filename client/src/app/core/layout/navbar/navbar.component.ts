@@ -23,6 +23,8 @@ export class NavbarComponent implements OnInit {
   fname: string = ''
   email: string = '' 
   showPopup = false; 
+  isDropdownOpen: boolean = false;
+  isNavbarOpen: boolean = false; 
 
   isLoggedIn! : Observable<boolean>
  
@@ -88,10 +90,16 @@ export class NavbarComponent implements OnInit {
     navbar.classList.toggle('hidden');
 }
 
+toggleDropdown() {
+  this.isDropdownOpen = !this.isDropdownOpen;
+  console.log('Dropdown toggled:', this.isDropdownOpen);
+}
+
 
 
   logOut(){
     this.logService.logOut()
+    this.isDropdownOpen = false
     this.router.navigate(['/login'])
   }
 

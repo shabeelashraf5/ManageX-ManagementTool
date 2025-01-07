@@ -48,6 +48,18 @@ setBackgroundImage(weatherCondition: string) {
       this.backgroundImage = 'assets/haze.gif';
       break;
 
+      case 'smoke':
+      this.backgroundImage = 'assets/smoke.gif';
+      break;
+
+      case 'mist':
+      this.backgroundImage = 'assets/mist.gif';
+      break;
+
+      case 'fog':
+      this.backgroundImage = 'assets/fog.gif';
+      break;
+      
     default:
       this.backgroundImage = 'assets/default.jpg'; 
   }
