@@ -10,7 +10,7 @@ import { environment } from '../../../../environment/environment';
 })
 export class LoginService {
 
-  private apiUrl =  + '/api'
+  private apiUrl = environment.apiUrl + '/api'
   private tokenKey = 'token'
 
   private isLogged = new BehaviorSubject<boolean>(this.hasToken())

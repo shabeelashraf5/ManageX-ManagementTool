@@ -8,7 +8,7 @@ import { environment } from '../../../../environment/environment';
 })
 export class PasswordsService {
 
-  private apiUrl =  + '/api'
+  private apiUrl = environment.apiUrl + '/api'
 
   constructor(private http: HttpClient) { }
 
