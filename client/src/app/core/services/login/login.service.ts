@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Register } from '../../../models/register.model';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Rpassword } from '../../../models/reset-password.model';
+import { environment } from '../../../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private apiUrl =  'http://localhost:3000/api'
+  private apiUrl = environment.apiUrl + '/api'
   private tokenKey = 'token'
 
   private isLogged = new BehaviorSubject<boolean>(this.hasToken())

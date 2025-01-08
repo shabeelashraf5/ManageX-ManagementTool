@@ -1,5 +1,7 @@
 export const environment = {
 
-    production : false 
+    production : false,
+    //apiUrl: 'http://localhost:3000'
+    apiUrl: 'https://managex-managementtool.onrender.com'
     
 }
