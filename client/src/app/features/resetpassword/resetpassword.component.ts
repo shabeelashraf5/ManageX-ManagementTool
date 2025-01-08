@@ -4,6 +4,7 @@ import { LoginService } from '../../core/services/login/login.service';
 import { Rpassword } from '../../models/reset-password.model';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resetpassword',
@@ -17,6 +18,7 @@ export class ResetpasswordComponent {
   email: string = ''
 
   loginService = inject(LoginService)
+  route = inject(Router)
 
   onSubmit() {
 
@@ -27,6 +29,7 @@ export class ResetpasswordComponent {
       next: (response) => {
           
           console.log(response)
+          this.route.navigate(['/login'])
           console.log('Password reset link sent');
        
       },
