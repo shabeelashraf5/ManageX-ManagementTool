@@ -5,7 +5,7 @@ function verifyToken(req, res, next) {
       const authHeader = req.headers.authorization;
       if (authHeader) {
         const token = authHeader.split(' ')[1]; 
-        const decoded = jwt.verify(token, 'secret');
+        const decoded = jwt.verify(token, process.env.JWT_CODE );
         req.userData = decoded;
         next();
       } else {
