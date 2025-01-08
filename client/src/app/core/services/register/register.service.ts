@@ -9,7 +9,7 @@ import { environment } from '../../../../environment/environment';
 })
 export class RegisterService {
 
-  private apiUrl = environment.apiUrl + '/api'
+  private apiUrl =  + '/api'
 
   constructor(private http: HttpClient) {}
 
