@@ -1,6 +1,16 @@
 {
+    "version": 2,
+    "builds": [
+      {
+        "src": "client/dist/pass-gen/**/*",
+        "use": "@vercel/static"
+      }
+    ],
     "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
     ]
   }
   
