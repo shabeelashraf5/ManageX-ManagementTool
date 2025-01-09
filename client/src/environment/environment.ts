@@ -1,7 +1,6 @@
 export const environment = {
 
-     production : false,
-    //  apiUrl: process.env['API_URL']
+    production : false,
     apiUrl: 'https://managex-managementtool.onrender.com'
     
     
