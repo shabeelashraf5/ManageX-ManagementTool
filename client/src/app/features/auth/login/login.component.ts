@@ -17,7 +17,6 @@ import { HttpErrorResponse } from '@angular/common/http';
   selector: 'app-login',
   standalone: true,
   imports: [
-    NavbarComponent,
     ButtonComponent,
     ReactiveFormsModule,
     CommonModule,
