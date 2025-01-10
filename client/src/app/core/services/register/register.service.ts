@@ -5,17 +5,14 @@ import { Register } from '../../../models/register.model';
 import { environment } from '../../../../environment/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RegisterService {
-
-  private apiUrl = environment.apiUrl + '/api'
+  private apiUrl = environment.apiUrl + '/api';
 
   constructor(private http: HttpClient) {}
 
   addUser(user: Register) {
     return this.http.post(`${this.apiUrl}/register`, user);
   }
-    
-
-  }
+}

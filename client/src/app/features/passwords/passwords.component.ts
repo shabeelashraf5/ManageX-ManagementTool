@@ -11,34 +11,31 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [TableComponent, CommonModule, HttpClientModule],
   templateUrl: './passwords.component.html',
-  styleUrls:  ['./passwords.component.css']
+  styleUrls: ['./passwords.component.css'],
 })
 export class PasswordsComponent implements OnInit {
-  
   passwordDetails: Passwords[] = [];
 
-  passService = inject(PasswordsService)
+  passService = inject(PasswordsService);
 
   headerPassword = [
-    {header: 'Passwords', field: 'password'},{header: 'created At',  field: 'createdAt'}
-  ]
+    { header: 'Passwords', field: 'password' },
+    { header: 'created At', field: 'createdAt' },
+  ];
 
   ngOnInit() {
-    this.loadPassword() 
-  } 
-
-  loadPassword(){
-
-    this.passService.loadPass().subscribe({
-      next: (response) => {
-        
-        this.passwordDetails = response.data
-        console.log(this.passwordDetails)
-      },
-      error: (error) => {
-        console.log(error)
-      }
-    })
+    this.loadPassword();
   }
 
+  loadPassword() {
+    this.passService.loadPass().subscribe({
+      next: (response) => {
+        this.passwordDetails = response.data;
+        console.log(this.passwordDetails);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
 }

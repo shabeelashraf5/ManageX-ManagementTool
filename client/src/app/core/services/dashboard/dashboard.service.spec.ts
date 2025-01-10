@@ -7,8 +7,8 @@ describe('DashboardService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],  // Import HttpClientTestingModule here
-      providers: [DashboardService]  // Provide your service here
+      imports: [HttpClientTestingModule], // Import HttpClientTestingModule here
+      providers: [DashboardService], // Provide your service here
     });
     service = TestBed.inject(DashboardService);
   });

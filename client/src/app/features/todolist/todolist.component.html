@@ -1,8 +1,11 @@
-<div class="flex flex-col items-center justify-center min-h-screen" >
+<div class="flex flex-col items-center justify-center min-h-screen">
+  <div
+    class="md:w-[600px] mx-auto p-6 bg-customPurple border border-customRed shadow-lg rounded-xl mt-8 max-h-[500px] min-h-[500px] overflow-y-auto"
+  >
+    <h1 class="text-3xl font-semibold text-center text-white mb-6">
+      To-Do List
+    </h1>
 
-<div class="md:w-[600px] mx-auto p-6 bg-customPurple border border-customRed shadow-lg rounded-xl mt-8 max-h-[500px] min-h-[500px] overflow-y-auto">
-    <h1 class="text-3xl font-semibold text-center text-white mb-6">To-Do List</h1>
-  
     <!-- Input and Add Task -->
     <div class="flex items-center mb-4">
       <input
@@ -18,7 +21,7 @@
         Add
       </button>
     </div>
-  
+
     <!-- Filter Buttons -->
     <div class="mb-4 text-center">
       <button
@@ -40,11 +43,13 @@
         Completed
       </button>
     </div>
-  
+
     <!-- Task List -->
     <ul class="space-y-3">
       <li *ngFor="let tasks of filteredTasks()">
-        <div class="flex items-center justify-between p-3 bg-customPurple border border-customRed text-white rounded-lg">
+        <div
+          class="flex items-center justify-between p-3 bg-customPurple border border-customRed text-white rounded-lg"
+        >
           <div class="flex items-center">
             <input
               type="checkbox"
@@ -52,7 +57,10 @@
               (change)="toggleCompletion(tasks._id)"
               class="mr-2"
             />
-            <span [ngClass]="{ 'line-through text-gray-400': tasks.completed }" >{{ tasks.title }}</span>
+            <span
+              [ngClass]="{ 'line-through text-gray-400': tasks.completed }"
+              >{{ tasks.title }}</span
+            >
           </div>
           <button
             (click)="deleteTask(tasks._id)"
@@ -64,5 +72,4 @@
       </li>
     </ul>
   </div>
-  
-  </div>
+</div>

@@ -5,20 +5,14 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environment/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DashboardService {
+  private apiUrl = environment.apiUrl + '/api';
 
-
-   private apiUrl = environment.apiUrl + '/api'
-
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   addPasswords(password: Passwords): Observable<any> {
-
-    return this.http.post(`${this.apiUrl}/dashboard`, password)
+    return this.http.post(`${this.apiUrl}/dashboard`, password);
   }
-  
-
 }

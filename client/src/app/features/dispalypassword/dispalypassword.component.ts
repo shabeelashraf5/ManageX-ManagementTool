@@ -8,31 +8,25 @@ import { ActivatedRoute, Router } from '@angular/router';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './dispalypassword.component.html',
-  styleUrl: './dispalypassword.component.css'
+  styleUrl: './dispalypassword.component.css',
 })
 export class DispalypasswordComponent implements OnInit {
-
-  newPassword!: string
-  rePassword!: string
-  token: string | null = ''
+  newPassword!: string;
+  rePassword!: string;
+  token: string | null = '';
   queryParam: string | null = null;
 
-  passService = inject(LoginService)
-  router = inject(Router)
-  route = inject(ActivatedRoute)
-
-
+  passService = inject(LoginService);
+  router = inject(Router);
+  route = inject(ActivatedRoute);
 
   ngOnInit() {
-
-    this.route.queryParamMap.subscribe(params => {
-      this.queryParam = params.get('token')
+    this.route.queryParamMap.subscribe((params) => {
+      this.queryParam = params.get('token');
     });
-  
   }
 
-  onSubmit(){
-
+  onSubmit() {
     if (this.newPassword !== this.rePassword) {
       console.error('Passwords do not match');
       return;
@@ -43,24 +37,20 @@ export class DispalypasswordComponent implements OnInit {
       return;
     }
 
-      this.passService.updatePassword(this.token, this.newPassword, this.rePassword).subscribe({
-        next: (response) =>{
-
+    this.passService
+      .updatePassword(this.token, this.newPassword, this.rePassword)
+      .subscribe({
+        next: (response) => {
           console.log('Password updated successfully:', response);
 
-          this.newPassword = ''
-         
-          this.router.navigate(['/login']);
+          this.newPassword = '';
 
+          this.router.navigate(['/login']);
         },
 
         error: (error) => {
-
           console.error('Error occurred:', error);
-        }
-      })
-    
+        },
+      });
   }
-
-
 }

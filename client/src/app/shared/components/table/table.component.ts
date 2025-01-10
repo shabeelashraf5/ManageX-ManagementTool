@@ -9,33 +9,24 @@ import { PasswordsComponent } from '../../../features/passwords/passwords.compon
   standalone: true,
   imports: [CommonModule],
   templateUrl: './table.component.html',
-  styleUrl: './table.component.css'
+  styleUrl: './table.component.css',
 })
-export class TableComponent  {
+export class TableComponent {
+  passService = inject(PasswordsService);
 
-  passService = inject(PasswordsService)
-
-  
-  @Input() columns: Array<{header: string, field: string }> = []
-  @Input() data: Array<any> = []
+  @Input() columns: Array<{ header: string; field: string }> = [];
+  @Input() data: Array<any> = [];
   //@ViewChild(PasswordsComponent) child!: PasswordsComponent
 
-
-  deletePassword(id: string){
-
+  deletePassword(id: string) {
     this.passService.deletePass(id).subscribe({
       next: (response) => {
-        this.data = this.data.filter(item => item._id !== id)
-        console.log(response)
+        this.data = this.data.filter((item) => item._id !== id);
+        console.log(response);
       },
       error: (error) => {
-        console.log(error)
-      }
-    })
-
+        console.log(error);
+      },
+    });
   }
-
-  
-
-
 }

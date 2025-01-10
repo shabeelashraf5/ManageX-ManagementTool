@@ -11,34 +11,26 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [FormsModule, HttpClientModule],
   templateUrl: './resetpassword.component.html',
-  styleUrl: './resetpassword.component.css'
+  styleUrl: './resetpassword.component.css',
 })
 export class ResetpasswordComponent {
+  email: string = '';
 
-  email: string = ''
-
-  loginService = inject(LoginService)
-  route = inject(Router)
+  loginService = inject(LoginService);
+  route = inject(Router);
 
   onSubmit() {
+    const user = { email: this.email };
 
-    const user = { email: this.email }
-
-    
     this.loginService.resetPassword(user).subscribe({
       next: (response) => {
-          
-          console.log(response)
-          this.route.navigate(['/login'])
-          console.log('Password reset link sent');
-       
+        console.log(response);
+        this.route.navigate(['/login']);
+        console.log('Password reset link sent');
       },
       error: (error) => {
         console.error('Error occurred:', error);
-      }
+      },
     });
   }
-
-
-
 }

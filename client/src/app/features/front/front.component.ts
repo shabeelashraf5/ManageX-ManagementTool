@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './front.component.html',
-  styleUrl: './front.component.css'
+  styleUrl: './front.component.css',
 })
-export class FrontComponent {
-
-}
+export class FrontComponent {}

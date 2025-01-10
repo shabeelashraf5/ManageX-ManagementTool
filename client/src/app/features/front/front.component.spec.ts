@@ -14,15 +14,15 @@ describe('FrontComponent', () => {
       imports: [FrontComponent],
 
       providers: [
-        {provide: ActivatedRoute,
+        {
+          provide: ActivatedRoute,
           useValue: {
-            paramMap: of({get: (key: string) => 'mocked-id'})
-          }
-        }
-      ]
-    })
-    .compileComponents();
-    
+            paramMap: of({ get: (key: string) => 'mocked-id' }),
+          },
+        },
+      ],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(FrontComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Bangers&family=League+Gothic&family=Saira+Condensed:wght@400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=League+Gothic&family=Saira+Condensed:wght@400&display=swap');
 
 .bangers-regular {
-    font-family: "Bangers", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
+  font-family: 'Bangers', serif;
+  font-weight: 400;
+  font-style: normal;
+}

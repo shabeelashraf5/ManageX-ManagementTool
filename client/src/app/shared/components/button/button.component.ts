@@ -7,13 +7,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+  styleUrl: './button.component.css',
 })
 export class ButtonComponent {
-
-  @Input() label: string = ''
-  @Input() customClass: string = ''
-  @Input() type: string = ''
-  @Input() disabled:  boolean = false
-
+  @Input() label: string = '';
+  @Input() customClass: string = '';
+  @Input() type: string = '';
+  @Input() disabled: boolean = false;
 }

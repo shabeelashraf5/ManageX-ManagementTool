@@ -9,34 +9,26 @@ import { PasswordsComponent } from './features/passwords/passwords.component';
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+  title = 'pass-gen';
 
-  title = 'pass-gen'
-  
-  showNavbar: boolean = false
+  showNavbar: boolean = false;
 
-  viewPort = inject(ViewportScroller)
-  router = inject(Router)
+  viewPort = inject(ViewportScroller);
+  router = inject(Router);
 
   ngOnInit() {
-    
-    this.hiddenNavbar()
+    this.hiddenNavbar();
   }
-  
 
-  hiddenNavbar(){
-
-    this.router.events.subscribe((event) =>{
-    
-      if(event instanceof NavigationEnd){
-
-        const navbarHiddenRoutes = ['/']
-        this.showNavbar = !navbarHiddenRoutes.includes(event.urlAfterRedirects)
+  hiddenNavbar() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const navbarHiddenRoutes = ['/'];
+        this.showNavbar = !navbarHiddenRoutes.includes(event.urlAfterRedirects);
       }
-
-    })
+    });
   }
-  
 }
