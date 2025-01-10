@@ -1,21 +1,19 @@
-const express = require('express')
-const router = express.Router()
-const verifyToken = require('../middlewares/verifyToken')
+const express = require('express');
+const router = express.Router();
+const verifyToken = require('../middlewares/verifyToken');
 
-const dashboardController  = require('../controllers/users')
+const dashboardController = require('../controllers/users');
 
+router.post('/login', dashboardController.userLogin);
+router.post('/register', dashboardController.userRegister);
+router.post('/dashboard', verifyToken, dashboardController.generatePasswords);
 
-router.post('/login', dashboardController.userLogin)
-router.post('/register', dashboardController.userRegister)
-router.post('/dashboard', verifyToken, dashboardController.generatePasswords)
+router.get('/passwords', verifyToken, dashboardController.loadPassword);
+router.delete('/passwords/delete/:id', dashboardController.passwordDelete);
 
-router.get('/passwords', verifyToken, dashboardController.loadPassword)
-router.delete('/passwords/delete/:id', dashboardController.passwordDelete)
+router.delete('/user/delete', verifyToken, dashboardController.deleteUser);
 
-router.delete('/user/delete', verifyToken,  dashboardController.deleteUser )
+router.post('/reset-password', dashboardController.resetPasswordRequest);
+router.post('/update-password', dashboardController.updatePassword);
 
-router.post('/reset-password', dashboardController.resetPasswordRequest)
-router.post('/update-password', dashboardController.updatePassword)
-
-
-module.exports = router
+module.exports = router;
